@@ -12,9 +12,10 @@ api_key=None
 base_url=None
 bbc_url=None
 cnn_url=None
+abc_url=None
 def configure_request(app):
     """Configures the request by getting the api_key and base_url"""
-    global api_key, base_url, bbc_url,cnn_url
+    global api_key, base_url, bbc_url,cnn_url,abc
     api_key=app.config['NEWS_API_KEY']
     base_url=app.config['NEWS_BASE_URL']
     bbc_url=app.config['BBC_URL']
@@ -91,6 +92,23 @@ def get_cnn():
         if cnn_response["articles"]:
             
             results_list = cnn_response["articles"]
+            news_results = process_results(results_list)
+
+    return news_results
+
+def get_cnn():
+    abc_url_details=abc_url.format(api_key)
+
+    with urllib.request.urlopen( abc_url_details) as url:
+        
+        get_abc_news_data = url.read()
+        news_results =None
+        
+        abc_response = json.loads(get_abc_news_data)
+        # print(bbc_response)
+        if abc_response["articles"]:
+            
+            results_list = abc_response["articles"]
             news_results = process_results(results_list)
 
     return news_results
