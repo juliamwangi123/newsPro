@@ -16,7 +16,7 @@ def configure_request(app):
     global api_key, base_url, bbc_url
     api_key=app.config['NEWS_API_KEY']
     base_url=app.config['NEWS_BASE_URL']
-    bbc_url=app.config['']
+    bbc_url=app.config['BBC_URL']
 
 def get_headlines():
     headlines_url=base_url.format(api_key)
@@ -81,7 +81,7 @@ def process_bbc_results(news_list):
     
     """ 
     
-    news_results = []
+    bbc_news_results = []
     
     for news_item in news_list:
         
@@ -94,7 +94,7 @@ def process_bbc_results(news_list):
         
         if title:
             headline_object = Headlines(title, description,content, url, url_to_image, published_at)
-            news_results.append(headline_object)
+            bbc_news_results.append(headline_object)
         
        
-    return news_results 
+    return bbc_news_results 

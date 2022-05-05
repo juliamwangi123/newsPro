@@ -1,7 +1,7 @@
 from turtle import title
 from flask import render_template
 from app import app
-from .requests import get_headlines, get_bbc()
+from .requests import get_headlines, get_bbc
 # Views
 @app.route('/')
 def index():
