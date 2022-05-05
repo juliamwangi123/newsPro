@@ -10,7 +10,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     BBC_URL='https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey={}'
     CNN_URL='https://newsapi.org/v2/top-headlines?sources=cnn&apiKey={}'
-
+    ABC_UR='https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey={}'
 
 
 
