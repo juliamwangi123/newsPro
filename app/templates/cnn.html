@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='static/main.css')}}"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Libre+Bodoni:wght@500&family=Montserrat+Alternates&family=Montserrat:wght@100&family=Poppins:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/02a4bd3e3a.js" crossorigin="anonymous"></script>
+
+
+    {% if title%}
+        <title>{{titile}}- NewsPro.</title>
+    {% else%}
+        <title>NewsPro.</title>
+    {%endif%}
+</head>
+<body>
+    <section id="section2">
+        <nav class="navbar navbar-expand-lg navbar-dark  bg-light" id="nav2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav"  >
+                <ul class="navbar-nav">
+                    <li class="nav-item active bars">
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-bars"></i></i></i></a></li>   
+    
+                      </li>
+                </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+    
+                  <a class="nav-link" href="{{url_for('index')}}">Home <span class="sr-only">(current)</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('bbc')}}">BCC</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('cnn')}}">CNN</a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="">Business</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Science</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav search">
+                <li class="nav-item active">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass "></i></i></i></a></li>   
+    
+                  </li>
+            </ul>
+    
+      </section>
+    <nav class="navbar navbar-expand-lg navbar-light  top" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav"  >
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+                <img src="{{url_for('static', filename='img/cnn.jpeg')}}" style="height: 50px; width: 50px; object-fit: contain;" alt="">
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">World <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Us Politics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Business</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Health</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">More</a>
+              </li>
+           
+          </ul>
+          <ul class="navbar-nav sm-icons">
+              <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-pinterest-p"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><i class="fa-brands fa-google-plus-g"></i></i></a></li>   
+          </ul>
+        </div>
+      </nav>
+      
+      <section id="bbcBlock">
+        {% for new in news%}
+    
+        <div class="news-card">
+          <a href="#" class="news-card-link"></a>
+          <img src="{{new.url_to_image}}" alt="" class="news-card-image">
+          <div class="wrapper">
+            <p class="carditle">{{new.description}} <a href="{{new.content}}">Read..</a> </p>
+            <small class="date">Published at:{{new.published_at}}</small>
+            
+          </div>
+        </div>
+        {%endfor%}
+    
+      </section>
+</body>
