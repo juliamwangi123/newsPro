@@ -78,3 +78,20 @@ def get_bbc():
 
     return news_results
 
+def get_cnn():
+    cnn_url_details=cnn_url.format(api_key)
+
+    with urllib.request.urlopen( cnn_url_details) as url:
+        
+        get_cnn_news_data = url.read()
+        news_results =None
+        
+        cnn_response = json.loads(get_cnn_news_data)
+        # print(bbc_response)
+        if cnn_response["articles"]:
+            
+            results_list = cnn_response["articles"]
+            news_results = process_results(results_list)
+
+    return news_results
+
