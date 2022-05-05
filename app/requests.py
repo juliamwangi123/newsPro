@@ -15,11 +15,12 @@ cnn_url=None
 abc_url=None
 def configure_request(app):
     """Configures the request by getting the api_key and base_url"""
-    global api_key, base_url, bbc_url,cnn_url,abc
+    global api_key, base_url, bbc_url,cnn_url,abc_url
     api_key=app.config['NEWS_API_KEY']
     base_url=app.config['NEWS_BASE_URL']
     bbc_url=app.config['BBC_URL']
     cnn_url=app.config['CNN_URL']
+    abc_url=app.config['ABC_URL']
 def get_headlines():
     headlines_url=base_url.format(api_key)
 
