@@ -9,6 +9,8 @@ class Config:
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     BBC_URL='https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey={}'
+    CNN_URL='https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey={}'
+
 
 
 
