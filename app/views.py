@@ -25,3 +25,8 @@ def bbc():
 def cnn():
     cnnNews=get_cnn()
     return render_template('cnn.html', news=cnnNews, title='cnn') 
+
+@app.route('/abc')
+def abc():
+    abcNews=get_abc()
+    return render_template('abc.html', news=abcNews, title='abc') 
