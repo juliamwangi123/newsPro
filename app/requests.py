@@ -10,13 +10,13 @@ api_key=None
 
 # getting the base url
 base_url=None
-source_url=None
+bbc_url=None
 def configure_request(app):
     """Configures the request by getting the api_key and base_url"""
-    global api_key, base_url, source_url
+    global api_key, base_url, bbc_url
     api_key=app.config['NEWS_API_KEY']
     base_url=app.config['NEWS_BASE_URL']
-    source_url=app.config['SOURCE_URL']
+    bbc_url=app.config['BBC_URL']
 
 def get_headlines():
     headlines_url=base_url.format(api_key)
@@ -60,16 +60,16 @@ def process_results(news_list):
     return news_results 
 
 
-def get_sources_articles(name):
-    source_url_details=source_url.format(name,api_key)
+def get_bbc():
+    bbc_url_details=bbc_url.format(api_key)
 
-    with urllib.request.urlopen( source_url_details) as url:
+    with urllib.request.urlopen( bbc_url_details) as url:
         
-        get_source_artcles = url.read()
+        get_bbc_news_data = url.read()
         news_results =None
         
-        bbc_response = json.loads(get_source_artcles)
-        
+        bbc_response = json.loads(get_bbc_news_data)
+        # print(bbc_response)
         if bbc_response["articles"]:
             
             results_list = bbc_response["articles"]
