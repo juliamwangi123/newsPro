@@ -1,7 +1,7 @@
 from turtle import title
 from flask import render_template
 from app import app
-from .requests import get_headlines, get_bbc
+from .requests import get_headlines, get_sources_articles
 # Views
 @app.route('/')
 def index():
@@ -15,8 +15,8 @@ def index():
 
 
 
-@app.route('/bbc')
-def bbc():
+@app.route('/sources/<id>')
+def sources_articles(id):
 
-    bbcNews=get_bbc()
-    return render_template('bbc.html', bbcNews=bbcNews, title='bbc')
+    newsArticles=get_sources_articles(id)
+    return render_template('source.html', news=newsArticles, title='bbc')
