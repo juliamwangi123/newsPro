@@ -96,7 +96,7 @@ def get_cnn():
 
     return news_results
 
-def get_cnn():
+def get_abc():
     abc_url_details=abc_url.format(api_key)
 
     with urllib.request.urlopen( abc_url_details) as url:
