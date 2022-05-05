@@ -19,4 +19,4 @@ def index():
 def bbc():
 
     bbcNews=get_bbc()
-    render_template('bbc.html', bbcNews=bbcNews, title='bbc')
+    return render_template('bbc.html', bbcNews=bbcNews, title='bbc')

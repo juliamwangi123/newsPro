@@ -36,6 +36,7 @@ def get_headlines():
 def process_results(news_list):
     
     """
+
     function that process results and cast data as my headlines class property
     
     """ 
@@ -65,36 +66,17 @@ def get_bbc():
     with urllib.request.urlopen( bbc_url_details) as url:
         
         get_bbc_news_data = url.read()
+        news_results =None
         
         bbc_response = json.loads(get_bbc_news_data)
+        # print(bbc_response)
         if bbc_response["articles"]:
             
             results_list = bbc_response["articles"]
-            news_results = process_bbc_results(results_list)
+            print("am working")
+            news_results = process_results(results_list)
+        else:
+            print('this block is running')
 
     return news_results
 
-def process_bbc_results(news_list):
-    
-    """
-    function that process results and cast data as my headlines class property
-    
-    """ 
-    
-    bbc_news_results = []
-    
-    for news_item in news_list:
-        
-        title = news_item.get("title")
-        description = news_item.get("description")
-        url = news_item.get("url")
-        url_to_image = news_item.get("urlToImage")
-        published_at = news_item.get("publishedAt")
-        content=news_item.get("content")
-        
-        if title:
-            headline_object = Headlines(title, description,content, url, url_to_image, published_at)
-            bbc_news_results.append(headline_object)
-        
-       
-    return bbc_news_results 

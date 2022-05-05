@@ -37,18 +37,18 @@
         <ul class="navbar-nav">
           <li class="nav-item active">
 
-            <a class="nav-link" href="{{url_for('getHeadline')}}">Home <span class="sr-only">(current)</span>
+            <a class="nav-link" href="{{url_for('index')}}">Home <span class="sr-only">(current)</span>
           </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('bbc')}}">BCC</a>
+            <a class="nav-link" href="">BCC</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">CNN</a>
           </li>
           <li class="nav-item">
               
-              <a class="nav-link" href="{{url_for('business')}}">Business</a>
+              <a class="nav-link" href="">Business</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Science</a>
@@ -123,7 +123,7 @@
           <li><a class="underlined" href="#">Video &amp; Audio</a></li>
           <li><a class="underlined" href="#">More</a></li>
         </ul>
-      </div>
+         </div>
     </div>
   </div>
 
@@ -141,8 +141,8 @@
       <a href="#" class="news-card-link"></a>
       <img src="{{bbcnew.url_to_image}}" alt="" class="news-card-image">
       <div class="wrapper">
-        <p class="carditle">{{bbc.description}} <a href="{{bbc.content}}">Read..</a> </p>
-        <div class="date">Published at:{{bbc.published_at}}</div>
+        <p class="carditle">{{bbcnew.description}} <a href="{{bbcnew.content}}">Read..</a> </p>
+        <div class="date">Published at:{{bbcnew.published_at}}</div>
         
       </div>
     </div>
