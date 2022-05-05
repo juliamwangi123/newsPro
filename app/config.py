@@ -8,7 +8,7 @@ class Config:
     NEWS_BASE_URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-
+    BBC_URL='https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey={}'
 
 
 
