@@ -1,5 +1,4 @@
 # newsPro
-# newsPro
 
 
 ### DESCRIPTION
