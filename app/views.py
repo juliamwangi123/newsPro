@@ -1,4 +1,3 @@
-from turtle import title
 from flask import render_template
 from app import app
 from .requests import get_cnn, get_headlines, get_bbc,get_cnn,get_abc
